@@ -38,7 +38,7 @@ sendButton.addEventListener("click", function () {
         })
 
         .catch(error => {
-            console.error(`Error talking to the backend at http://127.0.0.1:5000/chat:`, error);
+            console.error(`Error talking to the backend at http://127.0.0.1:5000/chat:)`, error);
 
             const errorMessageElement = document.createElement("div");
             errorMessageElement.classList.add("bot-message");
