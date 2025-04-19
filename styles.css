@@ -74,12 +74,12 @@ main {
     flex-grow: 1;
     padding: 12px 15px;
     border-radius: 4px;
-    font-size: 4px;
+    font-size: 14px;
     margin-right: 8px;
 }
 
 #send-button {
-    color: #4caf50;
+    background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 4px;
@@ -96,7 +96,8 @@ main {
 }
 
 .input-container {
-    display: flex padding 15px;
+    display: flex;
+    padding:15px;
     background-color: #f8f8f8;
     border-top: 1px solid #e0e0e0;
 }
