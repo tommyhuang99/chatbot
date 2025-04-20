@@ -19,19 +19,19 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
-    overflow: hidden
+    overflow: hidden;
 }
 
 header {
     background-color: #f8f8f8;
     padding: 15px;
     text-align: center;
-    border-bottom: 1px solid #e0e0e0
+    border-bottom: 1px solid #e0e0e0;
 }
 
 header h1 {
     font-size: 24px;
-    color: #333
+    color: #333;
 }
 
 main {
@@ -73,6 +73,7 @@ main {
 #user-input {
     flex-grow: 1;
     padding: 12px 15px;
+    border: 1px solid #e0e0e0;
     border-radius: 4px;
     font-size: 14px;
     margin-right: 8px;
@@ -85,6 +86,7 @@ main {
     border-radius: 4px;
     padding: 12px 20px;
     cursor: bold;
+    font-weight: bold;
 }
 
 #send-button:hover {
@@ -97,7 +99,7 @@ main {
 
 .input-container {
     display: flex;
-    padding:15px;
+    padding: 15px;
     background-color: #f8f8f8;
     border-top: 1px solid #e0e0e0;
 }
@@ -108,4 +110,51 @@ main {
         max-width: 100%;
         border-radius: 0;
     }
+}
+
+/* Widget */
+
+.chat-widget{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index: 1000;
+}
+
+.chat-toggle-button{
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    background-color:#4caf50;
+    color:white;
+    border:none;
+    font-size: 24px;
+    cursor:pointer;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);
+    transition:all 0.3s ease;
+}
+
+.chat-toggle-button:hover{
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#chat-container{
+    position: absolute;
+    bottom: 80px;
+    right: 0 ;
+    display:none;
+    width:350px;
+    height:50px;
+    transition: all 0.3s ease;
+}
+
+
+.container{
+    height:100%;
+    width:100%;
+}
+
+main{
+    height:calc(100%-54px);
 }

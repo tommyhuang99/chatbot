@@ -6,25 +6,36 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Chatbot</title>
      <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-     <div class="container">
-          <header>
-               <h1>Chatbot</h1>
-          </header>
-          <main>
-               <div id="chat-box">
-                    <!-- Chat messages will be displayed here  -->
+     <div class="chat-wisget">
+          <!-- Chat toggle button -->
+          <button id="caht-toggle" class="caht-toggle-button">
+               <!-- You could use text or an icon here -->
+               <i class="fa-solid fa-robot"></i>
+          </button>
+          <div class="container" id="chat-container">
+               <header>
+                    <h1>Chatbot</h1>
 
-               </div>
-               <div class="input-container">
-                    <input type="text" id="user-input" placeholder="Type your message here...">
-                    <button id="send-button">Send</button>
-               </div>
-          </main>
+                    <button id="close-chat">
+                         <i class="fa-solid fa-xmark"></i>
+                    </button>
+               </header>
+               <main>
+                    <div id="chat-box">
+                         <!-- Chat messages will be displayed here  -->
+
+                    </div>
+                    <div class="input-container">
+                         <input type="text" id="user-input" placeholder="Type your message here...">
+                         <button id="send-button">Send</button>
+                    </div>
+               </main>
+          </div>
      </div>
-
      <script src="script.js"></script>
 </body>
 
