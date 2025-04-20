@@ -57,22 +57,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeChat = document.getElementById('close-chat');
     const inputBox = document.getElementById("user-input");
     const sendButton = document.getElementById("send-button");
-    const chatBox = this.document.getElementById("chat-box");
+    const chatBox = document.getElementById("chat-box");
 
     chatToggle.addEventListener('click', function () {
         if (chatContainer.style.display === 'block') {
             chatContainer.style.display = 'none';
         } else {
-            chatContainer.style.accentColor.display = 'block';
+            chatContainer.style.display = 'block';
             inputBox.focus();
         }
     });
 
     closeChat.addEventListener('click', function () {
-        chatContainer.style = 'none';
+        chatContainer.style.display = 'none';
     });
 
-    inputBox.addEventListener(function (event) {
+    chatContainer.style.display = 'none';
+
+    inputBox.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             sendButton.click();
         }
@@ -111,16 +113,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     const errorMessageElement = document.createElement("div");
                     errorMessageElement.classList.add("bot-message");
-                    errorMessageElement.textContent = "Error" + data.error;
+                    errorMessageElement.textContent = "Error: " + data.error;
                     chatBox.appendChild(errorMessageElement);
                 }
             })
             .catch(error => {
-                console.error(`Error talking to backend at http://123.0.0.1:5000/chat:`, error);
+                console.error(`Error talking to backend at http://127.0.0.1:5000/chat:`, error);
 
                 const errorMessageElement = document.createElement('div');
                 errorMessageElement.classList.add("bot-message");
-                console.errorMessageElement.textContent = "sorry, I couldn't connect to the server. Please try again later";
+                errorMessageElement.textContent = "Sorry, I couldn't connect to the server. Please try again later";
                 chatBox.appendChild(errorMessageElement);
 
                 chatBox.scrollTop = chatBox.scrollHeight;
