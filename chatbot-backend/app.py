@@ -1,3 +1,4 @@
+from multiprocessing import Semaphore
 from flask import Flask, request, jsonify
 import os
 from flask_cors import CORS
@@ -7,13 +8,26 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Load GPT4All model once at startup
-model = GPT4All("Meta-Llama-3-8B-Instruct.Q4_0.gguf")
+MODEL_PATH = "Meta-Llama-3-8B-Instruct.Q4_0.gguf"
+model = None
 
+try:
+    if not os.path.exists(MODEL_PATH):
+        raise FileNotFoundError(f"Model file not found: {MODEL_PATH}")
+    model = GPT4All(MODEL_PATH)
+except Exception as e:
+    print(f"Failed to load GPT4All model: {e}")
+
+@app.route("/health", methods=["GET"])
+def health():
+    if model is None:
+        return jsonify({"status": "error", "message": "Model not loaded"}), 500
+    return jsonify({"status": "ok"})
 
 @app.route("/chat", methods=["POST"])
 def chat():
     try:
-        if not request.json or "message" not in request.json:
+        if not request.is_json or "message" not in request.json:
             return jsonify({"error": "Invalid request"}), 400
 
         user_message = request.json["message"]
